@@ -12,10 +12,18 @@ export const BlogCards = styled.div`
   gap: 2rem;
 `;
 
+export const SearchFormHeader = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
+
 export const BlogCard = styled.div`
   background: ${(props) => props.theme["dark-blue-300"]};
-  padding: 1.5rem 1.5rem;
+  padding: 1rem;
   border-radius: 10px;
+  border: 2px solid transparent;
 
   &:hover {
     border: 2px solid ${(props) => props.theme["dark-blue-200"]};
@@ -31,6 +39,10 @@ export const BlogCardHeader = styled.div`
     width: 80%;
     color: ${(props) => props.theme["gray-100"]};
     font-weight: 700;
+  }
+
+  time {
+    color: ${(props) => props.theme["gray-300"]};
   }
 `;
 
