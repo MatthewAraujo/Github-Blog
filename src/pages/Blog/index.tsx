@@ -3,7 +3,6 @@ import { useContext } from "react";
 import { Header } from "../../components/Header";
 import { Profile } from "../../components/Profile";
 import { GithubBlogContext } from "../../contexts/GithubBlogContext";
-import { dateFormatter } from "../../utils/formatter";
 import { SearchForm } from "./components/SearchForm";
 import ptBR from "date-fns/locale/pt-BR";
 import {
