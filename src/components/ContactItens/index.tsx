@@ -1,4 +1,4 @@
-import { Buildings, GithubLogo, Users } from "@phosphor-icons/react";
+import { GithubLogo } from "@phosphor-icons/react";
 import { ProfileContact, ProfileContactItem } from "./styles";
 
 interface ContactItensProps {

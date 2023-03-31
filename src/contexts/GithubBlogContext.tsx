@@ -41,10 +41,6 @@ export function GithubBlogProvider({ children }: GithubBlogProviderProps) {
     setGithubBlog(response.data);
   }
 
-  useEffect(() => {
-    fetchGithubBlog();
-  }, []);
-
   async function fetchGithubIssues(query?: string) {
     const response = await api.get(
       "search/issues?q=repo:MatthewAraujo/Github-Blog",
@@ -58,8 +54,10 @@ export function GithubBlogProvider({ children }: GithubBlogProviderProps) {
   }
 
   useEffect(() => {
+    fetchGithubBlog();
     fetchGithubIssues();
   }, []);
+
   return (
     <GithubBlogContext.Provider value={{ githubBlog, githubIssues }}>
       {children}
