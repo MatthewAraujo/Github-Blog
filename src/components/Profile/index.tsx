@@ -31,6 +31,7 @@ export function Profile() {
             <p>{githubBlog.bio}</p>
           </div>
           <ContactItens
+            id={githubBlog.id}
             github={githubBlog.name}
             company={githubBlog.company}
             follow={githubBlog.followers}

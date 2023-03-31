@@ -7,8 +7,23 @@ import {
 import { Link } from "react-router-dom";
 import { ContactItens } from "../../../components/ContactItens";
 import { TitleContainer, TitleContent, TitleHeader, TitleInfo } from "./style";
+interface IssuesParams {
+  id: number;
+  updated_at: string;
+  comments: number;
+  title: string;
+  user: {
+    login: string;
+  };
+}
 
-export function TitleIssues() {
+export function TitleIssues({
+  id,
+  updated_at,
+  comments,
+  title,
+  user,
+}: IssuesParams) {
   return (
     <TitleContainer>
       <TitleContent>
@@ -22,11 +37,12 @@ export function TitleIssues() {
           </a>
         </TitleHeader>
         <TitleInfo>
-          <h1>JavaScript data types and data structures</h1>
+          <h1>{title}</h1>
           <ContactItens
-            github="MatthewAraujo"
-            company="há 1 dia"
-            follow={5}
+            id={id}
+            github={user.login}
+            company={updated_at}
+            follow={comments}
             followers="comentarios"
             icons={{
               company: <CalendarBlank size={22} />,

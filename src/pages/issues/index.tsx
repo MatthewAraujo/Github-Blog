@@ -1,12 +1,36 @@
+import { useEffect, useState } from "react";
 import { Header } from "../../components/Header";
 import { IssuesContainer, IssuesContent } from "./style";
 import { TitleIssues } from "./TitleIssues";
+import { useParams } from "react-router-dom";
+import { api } from "../../lib/axios";
 
 export default function Issues() {
+  const [issues, setIssues] = useState([]);
+  const { id } = useParams();
+
+  async function fetchGithubIssues() {
+    const response = await api.get(
+      `search/issues?q=repo:MatthewAraujo/Github-Blog/issues/${id}`
+    );
+    setIssues(response.data.items);
+    console.log(response.data.items);
+  }
+
+  useEffect(() => {
+    fetchGithubIssues();
+  }, []);
+
   return (
     <div>
       <Header />
-      <TitleIssues />
+      <TitleIssues
+        key={id}
+        title={issues.title}
+        comments={comment}
+        updated_at={updated_at}
+        user={user.login}
+      />
 
       <IssuesContainer>
         <IssuesContent>

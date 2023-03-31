@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const BlogContainer = styled.main`
@@ -19,11 +20,12 @@ export const SearchFormHeader = styled.div`
   width: 100%;
 `;
 
-export const BlogCard = styled.div`
+export const BlogCard = styled(Link)`
   background: ${(props) => props.theme["dark-blue-300"]};
   padding: 1rem;
   border-radius: 10px;
   border: 2px solid transparent;
+  text-decoration: none;
 
   &:hover {
     border: 2px solid ${(props) => props.theme["dark-blue-200"]};

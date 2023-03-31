@@ -2,6 +2,7 @@ import { GithubLogo } from "@phosphor-icons/react";
 import { ProfileContact, ProfileContactItem } from "./styles";
 
 interface ContactItensProps {
+  id: number;
   github: string;
   company?: string;
   follow?: number;
@@ -13,6 +14,7 @@ interface ContactItensProps {
 }
 
 export function ContactItens({
+  id,
   github,
   company,
   follow,
@@ -20,7 +22,7 @@ export function ContactItens({
   icons,
 }: ContactItensProps) {
   return (
-    <ProfileContact>
+    <ProfileContact key={id}>
       <ProfileContactItem>
         <div>
           <GithubLogo size={22} />
