@@ -9,12 +9,11 @@ import { ContactItens } from "../../../components/ContactItens";
 import { TitleContainer, TitleContent, TitleHeader, TitleInfo } from "./style";
 interface IssuesParams {
   id: number;
-  updated_at: string;
+  updated_at: number;
   comments: number;
   title: string;
-  user: {
-    login: string;
-  };
+  user: string;
+  html_url: string;
 }
 
 export function TitleIssues({
@@ -23,6 +22,7 @@ export function TitleIssues({
   comments,
   title,
   user,
+  html_url,
 }: IssuesParams) {
   return (
     <TitleContainer>
@@ -31,7 +31,7 @@ export function TitleIssues({
           <Link to="/">
             <ArrowLeft size={22} color="#3294F8" /> voltar
           </Link>
-          <a href="">
+          <a href={html_url} target="_blank">
             ver no github
             <ArrowSquareUpRight size={22} color="#3294F8" />
           </a>
@@ -40,8 +40,8 @@ export function TitleIssues({
           <h1>{title}</h1>
           <ContactItens
             id={id}
-            github={user.login}
-            company={updated_at}
+            github={user}
+            date={updated_at}
             follow={comments}
             followers="comentarios"
             icons={{
